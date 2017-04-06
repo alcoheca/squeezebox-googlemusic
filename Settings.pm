@@ -60,6 +60,8 @@ sub handler {
 	     (encode_base64($params->{'password'}, '') ne $prefs->get('password')))) {
 		$prefs->set('username', $params->{'username'});
 		$prefs->set('password', encode_base64($params->{'password'}, ''));
+		$prefs->set('device_id', $params->{'device_id'});
+
 
 		# Logout from Google
 		$googleapi->logout();
